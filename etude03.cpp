@@ -74,35 +74,45 @@ int main () {
 
         int num_operators = len - 1;
 
-        // a different permutations occurs here with each iteration
-        do {
-            if (sc.order_mode == 'L') {
-                // do all permutations of [+/*, +/*, ...] using a binary string where 0='+', 1='*'
-                int sum = numbers[0];
-                for (int j = 0; j < 2^num_operators; j++) {
-                    string binary = bitset<num_operators>(j).to_string();
+        
+        if (sc.order_mode == 'L') {
+            // do all permutations of [+/*, +/*, ...] using a binary string where 0='+', 1='*'
+            int sum = numbers[0];
+            for (int j = 0; j < 2^num_operators; j++) {
+                string binary = bitset<num_operators>(j).to_string();
 
-                    // compute sum by looping through all operators and performing operations
-                    for (int k = 0; k < num_operators; k++) {
-                        char op = binary[k];
-                        if (op == '0') { // '+'
-                            sum += numbers[k+1];
-                        } 
-                        else { // '*'
-                            sum *= numbers[k+1];
-                        }
+                // compute sum by looping through all operators and performing operations
+                for (int k = 0; k < num_operators; k++) {
+                    char op = binary[k];
+                    if (op == '0') { // '+'
+                        sum += numbers[k+1];
+                    } 
+                    else { // '*'
+                        sum *= numbers[k+1];
                     }
                 }
-                if (sum == sc.target_value) {
-                    // FOUND SOLUTION, SAVE PERMUTATIONS AND CONVERT AND SAVE TO SC.OUTPUT
-                    // BREAK
+            }
+            if (sum == sc.target_value) {
+                // FOUND SOLUTION, SAVE PERMUTATIONS AND CONVERT AND SAVE TO SC.OUTPUT
+                // BREAK
+            }
+        }
+        else { // normal order of operations
+            int sum = 0;
+            for (int j = 0; j < 2^num_operators; j++) {
+                string binary = bitset<num_operators(j).to_string();
+
+                // compute sum
+                for (int k = 0; k < num_operators; k++) { // pass for *
+                    
+                }
+                for (int k = 0; k < num_operators; k++) { // pass for +
+
                 }
             }
-            else { // normal order of operations
-
-            }
+        }
             
-        } while (next_permutation(numbers, numbers + len));
+      
 
         if (solution_found) {
             // add string for output to output vector

@@ -14,3 +14,19 @@ main {
         }
     }
 }
+
+
+
+
+for normal OOO:
+vector of numbers, vector of operators
+for each operator {
+    if it is a * {
+        compute the product of the adjacent numbers
+        replace one numerand with the product and erase the other numerand
+        erase the operator from the vector
+        start from the beginning of the arrays to avoid skipping 
+    }
+    if you reach the end of the array, break
+}
+compute the sums left to right because they are all +'s
